@@ -47,7 +47,8 @@ def fftind(size):
 
 def gaussian_random_field(alpha = 3.0,
                           size = 128, 
-                          flag_normalize = True):
+                          flag_normalize = True,
+                          seed = None):
     """ Returns a numpy array of shifted Fourier coordinates k_x k_y.
         
         Input args:
@@ -70,7 +71,8 @@ def gaussian_random_field(alpha = 3.0,
         example = gaussian_random_field()
         plt.imshow(example)
         """
-        
+        # Set random seed for reproducable results
+    numpy.random.seed(seed)         
         # Defines momentum indices
     k_idx = fftind(size)
 
